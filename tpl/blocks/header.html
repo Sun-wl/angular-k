@@ -1,0 +1,36 @@
+<header class="header-top" ng-controller="LoginCtrl">
+    <div class="header-ctn">
+        <div class="logo"><img src="img/font.png" ui-sref="page.home" alt=""><span>开放平台</span></div>
+        <button class="pull-right" ui-toggle-class="off-screen" data-target="#example-navbar-collapse"
+                ui-scroll="app">
+            <i class="glyphicon glyphicon-align-justify"></i>
+        </button>
+        <nav class="header-nav" id="example-navbar-collapse">
+            <ul class="header-navbar">
+                <li class="home-li"><span ui-sref="page.home">首页</span></li>
+                <li class="guide-li"><span ui-sref="page.guide">接入引导</span></li>
+                <li class="document-li"><span ui-sref="page.document">开发文档</span></li>
+                <li class="manage-li"><span ng-click="toManage()">管理中心</span></li>
+                <li class="help-li"><span ui-sref="page.help.feedback">帮助中心</span></li>
+                <li class="login-li" ng-if="loginCode != 200">
+                    <script type="text/ng-template" id="loginModal.html">
+                        <div class="loginModal" ng-include="'tpl/loginModal.html'"></div>
+                    </script>
+                    <button class="login-btn" ng-click="open(3)">登录</button>
+                </li>
+                <ul class="login-ul" ng-if="loginCode == 200">
+                    <li class="login-li">
+                        <span ui-sref="page.manage.order">{{userName}}</span>
+                    </li>
+                    <li class="login-li">
+                        <span>&nbsp;|&nbsp;</span>
+                    </li>
+                    <li class="login-li">
+                        <span ng-click="logOut()">退出</span>
+                    </li>
+                </ul>
+            </ul>
+            <ul class="nav navbar-nav navbar-right"></ul>
+        </nav>
+    </div>
+</header>

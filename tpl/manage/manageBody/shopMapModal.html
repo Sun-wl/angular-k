@@ -1,0 +1,18 @@
+<style>
+    @media (min-width: 768px) {
+        .modal-content {
+            width: 800px;
+        }
+    }
+
+</style>
+<div class="modal-header shopMapModalHeader">
+    <span>选择门店位置，佣兵根据您设置的位置取货</span>
+    <button class="confirm" ng-click="ok()" disabled>确定</button>
+    <button class="closeBtn" ng-click="cancel()">关闭地图</button>
+</div>
+<div class="modal-body shopMapModalBody">
+    <div id="container2" style="width:760px; height:400px;"></div>
+</div>
+
+

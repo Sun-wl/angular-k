@@ -1,0 +1,175 @@
+<div class="hbox hbox-auto-xs hbox-auto-sm" ng-init="
+    app.settings.asideFolded = false; 
+    app.settings.asideDock = false;
+  ">
+  <!-- main -->
+  <div class="col">
+    <!-- main header -->
+    <div class="bg-light lter b-b wrapper-md">
+      <div class="row">
+        <div class="col-sm-6 col-xs-12">
+          <h1 class="m-n font-thin h3 text-black">Dashboard</h1>
+          <small class="text-muted">欢迎来到任务堂</small>
+        </div>
+        <div class="col-sm-6 text-right hidden-xs">
+
+        </div>
+      </div>
+    </div>
+    <!-- / main header -->
+    <div class="wrapper-md" ng-controller="DashoardCtrl">
+      <!-- stats -->
+      <div class="row">
+        <div class="col-md-12">
+          <!--
+          <div class="row row-sm text-center">
+            <div class="col-xs-3">
+              <div class="panel padder-v item">
+                <div class="h1 text-info font-thin h1">{{dashoard.totalOrderCount}}</div>
+                <span class="text-muted text-xs">运单总数</span>
+                <div class="top text-right w-full">
+                  <i class="fa fa-caret-down text-warning m-r-sm"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-3">
+              <a href class="block panel padder-v bg-primary item">
+                <span class="text-white font-thin h1 block">{{dashoard.waitOrder}}</span>
+                <span class="text-muted text-xs">待运订单</span>
+                <span class="bottom text-right w-full">
+                  <i class="fa fa-cloud-upload text-muted m-r-sm"></i>
+                </span>
+              </a>
+            </div>
+            <div class="col-xs-3">
+              <a href class="block panel padder-v bg-info item">
+                <span class="text-white font-thin h1 block">{{dashoard.runnerCount}}</span>
+                <span class="text-muted text-xs">骑手人数</span>
+                <span class="top text-left">
+                  <i class="fa fa-caret-up text-warning m-l-sm"></i>
+                </span>
+              </a>
+            </div>
+            <div class="col-xs-3">
+              <div class="panel padder-v item">
+                <div class="font-thin h1">{{dashoard.runnerFuzai}}</div>
+                <span class="text-muted text-xs">骑手负载</span>
+                <div class="bottom text-left">
+                  <i class="fa fa-caret-up text-warning m-l-sm"></i>
+                </div>
+              </div>
+            </div>
+          </div>-->
+        </div>
+      </div>
+      <!-- / stats -->
+
+      <!-- tasks
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel no-border">
+            <div class="panel-heading wrapper b-b b-light">
+              <span class="text-xs text-muted pull-right">
+                <i class="fa fa-circle text-primary m-r-xs"></i> 进行中
+                <i class="fa fa-circle text-info m-r-xs m-l-sm"></i> 待配对
+                <i class="fa fa-circle text-warning m-r-xs m-l-sm"></i> 待审核
+              </span>
+              <h4 class="font-thin m-t-none m-b-none text-muted">我的任务</h4>
+            </div>
+            <ul class="list-group list-group-lg m-b-none">
+              <li class="list-group-item">
+                <a href class="thumb-sm m-r">
+                  <img ng-src="{{app.ctx}}/assets/img/a1.jpg" class="r r-2x">
+                </a>
+                <span class="pull-right label bg-primary inline m-t-sm">进行中</span>
+                <a href>Damon Parker</a>
+              </li>
+              <li class="list-group-item">
+                <a href class="thumb-sm m-r">
+                  <img ng-src="{{app.ctx}}/assets/img/a2.jpg" class="r r-2x">
+                </a>
+                <span class="pull-right label bg-info inline m-t-sm">待配对</span>
+                <a href>Joe Waston</a>
+              </li>
+              <li class="list-group-item">
+                <a href class="thumb-sm m-r">
+                  <img ng-src="{{app.ctx}}/assets/img/a3.jpg" class="r r-2x">
+                </a>
+                <span class="pull-right label bg-warning inline m-t-sm">待审核</span>
+                <a href>Jannie Dvis</a>
+              </li>
+              <li class="list-group-item">
+                <a href class="thumb-sm m-r">
+                  <img ng-src="{{app.ctx}}/assets/img/a4.jpg" class="r r-2x">
+                </a>
+                <span class="pull-right label bg-warning inline m-t-sm">待审核</span>
+                <a href>Emma Welson</a>
+              </li>
+            </ul>
+            <div class="panel-footer">
+              <span class="pull-right badge badge-bg m-t-xs">32</span>
+              <button class="btn btn-primary btn-addon btn-sm"><i class="fa fa-plus"></i>创建任务</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">            
+          <div class="list-group list-group-lg list-group-sp">
+            <a herf class="list-group-item clearfix">
+              <span class="pull-left thumb-sm avatar m-r">
+                <img ng-src="{{app.ctx}}/assets/img/a4.jpg" alt="...">
+                <i class="on b-white right"></i>
+              </span>
+              <span class="clear">
+                <span>Chris Fox</span>
+                <small class="text-muted clear text-ellipsis">What's up, buddy</small>
+              </span>
+            </a>
+            <a herf class="list-group-item clearfix">
+              <span class="pull-left thumb-sm avatar m-r">
+                <img ng-src="{{app.ctx}}/assets/img/a5.jpg" alt="...">
+                <i class="on b-white right"></i>
+              </span>
+              <span class="clear">
+                <span>Amanda Conlan</span>
+                <small class="text-muted clear text-ellipsis">Come online and we need talk about the plans that we have discussed</small>
+              </span>
+            </a>
+            <a herf class="list-group-item clearfix">
+              <span class="pull-left thumb-sm avatar m-r">
+                <img ng-src="{{app.ctx}}/assets/img/a6.jpg" alt="...">
+                <i class="busy b-white right"></i>
+              </span>
+              <span class="clear">
+                <span>Dan Doorack</span>
+                <small class="text-muted clear text-ellipsis">Hey, Some good news</small>
+              </span>
+            </a>
+            <a herf class="list-group-item clearfix">
+              <span class="pull-left thumb-sm avatar m-r">
+                <img ng-src="{{app.ctx}}/assets/img/a7.jpg" alt="...">
+                <i class="busy b-white right"></i>
+              </span>
+              <span class="clear">
+                <span>Lauren Taylor</span>
+                <small class="text-muted clear text-ellipsis">Nice to talk with you.</small>
+              </span>
+            </a>
+            <a herf class="list-group-item clearfix">
+              <span class="pull-left thumb-sm avatar m-r">
+                <img ng-src="{{app.ctx}}/assets/img/a8.jpg" alt="...">
+                <i class="away b-white right"></i>
+              </span>
+              <span class="clear">
+                <span>Mike Jackson</span>
+                <small class="text-muted clear text-ellipsis">This is nice</small>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- / tasks -->
+    </div>
+  </div>
+  <!-- / main -->
+
+</div>

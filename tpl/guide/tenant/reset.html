@@ -1,0 +1,32 @@
+<div class="reset" id="reset" ng-controller="RegisterCtrl">
+    <h1 class="page-title">商户密码重置</h1>
+    <div class="tenant-body">
+        <div class="tenant-info">
+            <div class="tenant-info-body">
+                <div class="tenant-info-name">手机号</div>
+                <div class="tenant-info-ctn">
+                    <input type="number" class="" placeholder="请输入手机号" ng-model="form.mobile" autofocus>
+                </div>
+                <div class="tenant-info-last"></div>
+            </div>
+            <div class="tenant-info-body">
+                <div class="tenant-info-name">新密码</div>
+                <div class="tenant-info-ctn">
+                    <input type="password" class="" placeholder="请输入密码（密码不能少于6位）" ng-model="form.password">
+                </div>
+                <div class="tenant-info-last"></div>
+            </div>
+            <div class="tenant-info-body">
+                <div class="tenant-info-name">手机验证码</div>
+                <div class="tenant-info-ctn" ng-controller="SendCode">
+                    <input type="number" class="last" placeholder="请输入手机验证码" ng-model="form.code">
+                    <button class="all-btn" ng-click="sendCode(3)">{{text}}</button>
+                </div>
+                <div class="tenant-info-last"></div>
+            </div>
+        </div>
+        <div class="tenant-footer">
+            <button class="all-btn" ng-click="resetPass()">提交</button>
+        </div>
+    </div>
+</div>

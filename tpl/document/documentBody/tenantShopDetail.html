@@ -1,0 +1,173 @@
+<div class="tenantShopDetail" id="tenantShopDetail" ng-controller="DocumentCtrl">
+    <h1 class="table-ctn-title">门店详情</h1>
+    <p class="table-ctn-p-blueBorder">接口简介</p>
+    <p class="table-ctn-p">查询门店详情接口,接口URL地址：/api/shop/detail</p>
+    <p class="table-ctn-p-blueBorder">请求参数说明</p>
+    <div class="table-ctn-table">
+        <div class="table-responsive">
+            <table class="table table-hover m-b-none">
+                <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>是否必传</th>
+                    <th>描述</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><strong>origin_shop_id</strong></td>
+                    <td>String</td>
+                    <td>是</td>
+                    <td>门店编码</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="table-ctn-json">
+        请求参数示例
+        <div class="table-ctn-jsonBody">
+            <pre class="brush: java;">
+                {
+                    "origin_shop_id": "shop001",
+                }
+            </pre>
+        </div>
+    </div>
+    <p class="table-ctn-p-blueBorder">返回结果</p>
+    <p class="table-ctn-p">返回JSON格式，以下为参数说明：</p>
+    <div class="table-ctn-table">
+        <div class="table-responsive">
+            <table class="table table-hover m-b-none">
+                <thead>
+                <tr>
+                    <th>参数名称</th>
+                    <th>类型</th>
+                    <th>描述</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>statusCode</td>
+                    <td>Integer</td>
+                    <td>响应状态，成功为"200"，失败为"300"</td>
+                </tr>
+                <tr>
+                    <td>message</td>
+                    <td>String</td>
+                    <td>如果错误则显示错误原因</td>
+                </tr>
+                <tr>
+                    <td>data</td>
+                    <td>Object</td>
+                    <td>响应结果，JSON对象，详见具体的接口描述</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p class="table-ctn-p">data业务参数：</p>
+    <div class="table-ctn-table">
+        <div class="table-responsive">
+            <table class="table table-hover m-b-none">
+                <thead>
+                <tr>
+                    <th>参数名称</th>
+                    <th>类型</th>
+                    <th>描述</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>origin_shop_id</td>
+                    <td>String</td>
+                    <td>门店编码</td>
+                </tr>
+                <tr>
+                    <td>station_name</td>
+                    <td>String</td>
+                    <td>门店名称</td>
+                </tr>
+                <tr>
+                    <td>city_code</td>
+                    <td>String</td>
+                    <td>城市的code（<a class="blue" href="#/page/document/tenantCityList">查看各城市对应的code值</a>)</td>
+                </tr>
+                <tr>
+                    <td>area_name</td>
+                    <td>String</td>
+                    <td>区域名称</td>
+                </tr>
+                <tr>
+                    <td>station_address</td>
+                    <td>String</td>
+                    <td>门店地址</td>
+                </tr>
+                <tr>
+                    <td>station_address_details</td>
+                    <td>String</td>
+                    <td>门店详细地址</td>
+                </tr>
+                <tr>
+                    <td>lng</td>
+                    <td>Double</td>
+                    <td>门店经度</td>
+                </tr>
+                <tr>
+                    <td>lat</td>
+                    <td>Double</td>
+                    <td>门店纬度</td>
+                </tr>
+                <tr>
+                    <td>contact</td>
+                    <td>String</td>
+                    <td>联系人姓名</td>
+                </tr>
+                <tr>
+                    <td>mobile</td>
+                    <td>String</td>
+                    <td>联系人电话</td>
+                </tr>
+                <tr>
+                    <td>status</td>
+                    <td>Integer</td>
+                    <td>门店状态（2-门店激活，1-停用）</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="table-ctn-json">
+        正确的响应结果（JSON格式）
+        <div class="table-ctn-jsonBody">
+            <pre class="brush: java;">
+                {
+                    "data": {
+                        "station_name": "shop001",
+                        "area_name": "闵行区",
+                        "station_address": "明翰教育(上中西路)",
+                        "station_address_details": "201室",
+                        "city_code": "上海",
+                        "contact": "shop001",
+                        "origin_shop_id": "shop001",
+                        "lng": 121.407631,
+                        "mobile": "13810001001",
+                        "lat": 31.129922,
+                        "status": 0
+                      },
+                    "statusCode": 200,
+                    "message": "成功"
+                }
+            </pre>
+        </div>
+    </div>
+    <div class="table-ctn-json">
+        失败的响应结果（JSON格式）
+        <div class="table-ctn-jsonBody">
+            <pre class="brush: java;">
+                {
+                    "statusCode": 300,
+                    "message": "门店不存在"
+                }
+            </pre>
+        </div>
+    </div>
+</div>

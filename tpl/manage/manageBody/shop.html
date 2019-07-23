@@ -1,0 +1,93 @@
+<div class="shop" id="shop" ng-controller="shopCtrl">
+    <div class="manage-title">
+        <div class="manage-title-body">门店管理</div>
+    </div>
+    <div class="manage-ctn">
+        <div class="manage-shop">
+            <div class="manage-shop-add">
+                <button ui-sref="page.manage.shopAdd">添加门店</button>
+            </div>
+            <div class="manage-shop-top">
+                <div class="manage-shop-top-ctn">
+                    <div class="manage-shop-text">门店编码</div>
+                    <div class="manage-shop-input">
+                        <input type="text" class="form-control" ng-model="form.originShopId">
+                    </div>
+                </div>
+                <div class="manage-shop-top-ctn">
+                    <div class="manage-shop-text">门店名称</div>
+                    <div class="manage-shop-input">
+                        <input type="text" class="form-control" ng-model="form.name">
+                    </div>
+                </div>
+            </div>
+            <div class="manage-shop-top">
+                <div class="manage-shop-top-ctn">
+                    <div class="manage-shop-text">联系人</div>
+                    <div class="manage-shop-input">
+                        <input type="text" class="form-control" ng-model="form.contact">
+                    </div>
+                </div>
+                <div class="manage-shop-top-ctn">
+                    <div class="manage-shop-text">联系人电话</div>
+                    <div class="manage-shop-input">
+                        <input type="text" class="form-control" ng-model="form.mobile">
+                    </div>
+                </div>
+                <div class="manage-shop-search">
+                    <button ng-click="search()">查询</button>
+                </div>
+            </div>
+            <div class="table-ctn-table">
+                <div class="panel panel-default">
+                    <div class="table-responsive">
+                        <table class="table table-hover m-b-none">
+                            <thead>
+                            <tr>
+                                <th>门店编码</th>
+                                <th>门店名称</th>
+                                <th>联系人/店长</th>
+                                <th>联系人电话</th>
+                                <th>门店地址</th>
+                                <th>是否分配运力</th>
+                                <th>操作</th>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="shop in shops">
+                                <td>{{shop.originShopId}}</td>
+                                <td>{{shop.name}}</td>
+                                <td>{{shop.contact}}</td>
+                                <td>{{shop.mobile}}</td>
+                                <td><span ng-repeat="city in app.city" ng-if="city.code == shop.city">{{city.name}}</span>{{shop.areaName}} - {{shop.address}}<span ng-if="shop.addrDetail">{{shop.addrDetail}}</span></td>
+                                <td>
+                                    <img src="img/green.png" alt="" ng-if="shop.teamId" style="width: 12px;">
+                                    <img src="img/gray.png" alt="" ng-if="!shop.teamId" style="width: 12px;">
+                                </td>
+                                <td>
+                                    <button class="editBtn" ui-sref="page.manage.shopAdd({id:shop.id, city:shop.city})">编辑</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel-footer pages-skip">
+                        <div class="pages-left">
+                            <div ng-if="!result.recordsTotal"><b>符合条件的数据为空</b></div>
+                            <div ng-if="result.recordsTotal">显示第 {{start+1}} 至 <span
+                                    ng-if="start != lastStart">{{start+10}}</span><span ng-if="start == lastStart">{{result.recordsTotal}}</span>
+                                项结果，共 {{result.recordsTotal}} 项
+                            </div>
+                        </div>
+                        <div class="pages-right">
+                            <pagination total-items="bigTotalItems" ng-model="currentPage" ng-change="pageChanged()"
+                                        max-size="maxSize" class="pagination-sm m-t-none m-b" previous-text="上页"
+                                        next-text="下页"
+                                        first-text="首页" last-text="尾页" boundary-links="true" rotate="false"
+                                        num-pages="numPages"></pagination>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

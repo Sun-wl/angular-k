@@ -1,0 +1,50 @@
+<div class="tenantRegister1" id="tenantRegister1" ng-controller="RegisterCtrl">
+    <h1 class="page-title">商户账号注册</h1>
+    <div class="tenant-body">
+        <div class="stage">
+            <div class="stage-body">
+                <img src="img/b1.png" alt="">
+                <p>账号信息</p>
+            </div>
+            <div class="stage-line"></div>
+            <div class="stage-body">
+                <img src="img/p2.png" alt="">
+                <p>企业信息</p>
+            </div>
+            <!--<div class="stage-line"></div>-->
+            <!--<div class="stage-body">-->
+                <!--<img src="img/p3.png" alt="">-->
+                <!--<p>注册协议</p>-->
+            <!--</div>-->
+        </div>
+        <div class="tenant-info">
+            <div class="tenant-info-body">
+                <div class="tenant-info-name">手机号</div>
+                <div class="tenant-info-ctn">
+                    <input type="number" class="" placeholder="请输入手机号" ng-model="form.mobile" autofocus>
+                </div>
+                <div class="tenant-info-last"></div>
+            </div>
+            <div class="tenant-info-body">
+                <div class="tenant-info-name">密码</div>
+                <div class="tenant-info-ctn">
+                    <input type="password" class="" placeholder="请输入密码（密码不能少于6位）" ng-model="form.password">
+                </div>
+                <div class="tenant-info-last"></div>
+            </div>
+            <div class="tenant-info-body">
+                <div class="tenant-info-name">手机验证码</div>
+                <div class="tenant-info-ctn" ng-controller="SendCode">
+                    <input type="number" class="last" placeholder="请输入手机验证码" ng-model="form.code">
+                    <button class="all-btn" ng-click="sendCode(1)">{{text}}</button>
+                </div>
+                <div class="tenant-info-last"></div>
+            </div>
+        </div>
+        <div class="tenant-footer">
+            <!--<a href="#page/tenantRegister2">-->
+                <button class="all-btn" ng-click="toReg2()">下一步</button>
+            <!--</a>-->
+        </div>
+    </div>
+</div>

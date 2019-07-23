@@ -1,0 +1,106 @@
+<div class="order" id="order" ng-controller="OrderCtrl">
+    <div class="manage-title">
+        <div class="manage-title-body">订单列表</div>
+    </div>
+    <div class="manage-ctn">
+        <div class="manage-order">
+            <div class="manage-order-top">
+
+                <div class="manage-order-top-ctn">
+                    <div class="manage-order-text">三方单号</div>
+                    <div class="manage-order-input">
+                        <input type="text" class="form-control" ng-model="form.originId">
+                    </div>
+                </div>
+                <div class="manage-order-top-ctn">
+                    <div class="manage-order-text">发货人手机号</div>
+                    <div class="manage-order-input">
+                        <input type="text" class="form-control" ng-model="form.fromMobile">
+                    </div>
+                </div>
+                <div class="manage-order-top-ctn">
+                    <div class="manage-order-text">收货人手机号</div>
+                    <div class="manage-order-input">
+                        <input type="text" class="form-control" ng-model="form.toMobile">
+                    </div>
+                </div>
+                <div class="manage-order-top-ctn">
+                    <div class="manage-order-text">应用名称</div>
+                    <div class="manage-order-input">
+                        <select name="" class="form-control" ng-model="form.appKey">
+                            <option value="">---请选择---</option>
+                            <option ng-repeat="app in apps" value="{{app.appKey}}">{{app.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <!--<div class="manage-order-top-ctn">-->
+                    <!--<div class="manage-order-text">支付状态</div>-->
+                    <!--<div class="manage-order-input">-->
+                        <!--<select name="" class="form-control" ng-model="form.payStatus">-->
+                            <!--<option value="">-&#45;&#45;请选择-&#45;&#45;</option>-->
+                            <!--<option ng-repeat="payStatu in payStatus" value="{{payStatu.value}}">{{payStatu.name}}-->
+                            <!--</option>-->
+                        <!--</select>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="manage-order-top-ctn">
+                    <div class="manage-order-text">西客单号</div>
+                    <div class="manage-order-input">
+                        <input type="text" class="form-control" ng-model="form.orderNo">
+                    </div>
+                </div>
+                <div class="manage-order-search">
+                    <button ng-click="search()">查询</button>
+                </div>
+            </div>
+            <div class="table-ctn-table">
+                <div class="panel panel-default">
+                    <div class="table-responsive">
+                        <table class="table table-hover m-b-none">
+                            <thead>
+                            <tr>
+                                <th>城市</th>
+                                <th>门店</th>
+                                <th>西客单号</th>
+                                <th>第三方单号</th>
+                                <th>订单状态</th>
+                                <th>详情</th>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="order in orders">
+                                <td>{{order.cityName}}</td>
+                                <td>{{order.storeName}}</td>
+                                <td>{{order.orderNo}}</td>
+                                <td>{{order.originId}}</td>
+                                <td>{{order.orderStatusText}}</td>
+                                <td>
+                                    <script type="text/ng-template" id="orderDetail.html">
+                                        <div ng-include="'tpl/manage/manageBody/orderDetail.html'"></div>
+                                    </script>
+                                    <button class="btn btn-xs bgBlue" ng-click="open(order.orderNo)">查看详情</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel-footer pages-skip">
+                        <div class="pages-left">
+                            <div ng-if="!result.recordsTotal"><b>符合条件的数据为空</b></div>
+                            <div ng-if="result.recordsTotal">显示第 {{start+1}} 至 <span
+                                    ng-if="start != lastStart">{{start+10}}</span><span ng-if="start == lastStart">{{result.recordsTotal}}</span>
+                                项结果，共 {{result.recordsTotal}} 项
+                            </div>
+                        </div>
+                        <div class="pages-right">
+                            <pagination total-items="bigTotalItems" ng-model="currentPage" ng-change="pageChanged()"
+                                        max-size="maxSize" class="pagination-sm m-t-none m-b" previous-text="上页"
+                                        next-text="下页"
+                                        first-text="首页" last-text="尾页" boundary-links="true" rotate="false"
+                                        num-pages="numPages"></pagination>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

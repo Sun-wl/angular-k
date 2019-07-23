@@ -1,0 +1,88 @@
+<div class="orderCancel" id="orderCancel">
+    <h1 class="table-ctn-title">取消订单(线上环境)</h1>
+    <p class="table-ctn-p-blueBorder-bold">接口简介</p>
+    <p class="table-ctn-p">在订单待接单或待取货情况下，调用此接口可取消订单。
+        <!--注意：接单后1－15分钟内取消订单，运费退回。同时扣除2元作为给配送员的违约金-->
+    </p>
+    <p class="table-ctn-p">接口调用请求说明，URL地址：/api/order/formalCancel</p>
+    <p class="table-ctn-p-boldTitle">请求参数说明</p>
+    <div class="table-ctn-table">
+        <div class="table-responsive">
+            <table class="table table-hover m-b-none">
+                <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>是否必传</th>
+                    <th>描述</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="tdBold">order_id</td>
+                    <td>String</td>
+                    <td>是</td>
+                    <td>第三方订单编号</td>
+                </tr>
+                <tr>
+                    <td class="tdBold">cancelReasonId</td>
+                    <td>Integer</td>
+                    <td>是</td>
+                    <td>取消原因ID</td>
+                </tr>
+                <tr>
+                    <td class="tdBold">cancelReason</td>
+                    <td>String</td>
+                    <td>是</td>
+                    <td>取消原因(当取消原因ID为其他时，此字段必填)</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p class="table-ctn-p-blueBorder-bold">返回结果</p>
+    <p class="table-ctn-p">返回JSON格式，以下为参数说明：</p>
+    <div class="table-ctn-table">
+        <div class="table-responsive">
+            <table class="table table-hover m-b-none">
+                <thead>
+                <tr>
+                    <th>参数名称</th>
+                    <th>类型</th>
+                    <th>描述</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>statusCode</td>
+                    <td>Integer</td>
+                    <td>响应状态，成功为"200"，失败为"300"</td>
+                </tr>
+                <tr>
+                    <td>message</td>
+                    <td>String</td>
+                    <td>如果错误则显示错误原因</td>
+                </tr>
+                <tr>
+                    <td>data</td>
+                    <td>Object</td>
+                    <td>响应结果，JSON对象，详见具体的接口描述</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p class="table-ctn-p">data业务参数：</p>
+    <div class="table-ctn-table">
+        <div class="table-responsive">
+            <table class="table table-hover m-b-none">
+                <thead>
+                <tr>
+                    <th>参数名称</th>
+                    <th>类型</th>
+                    <th>描述</th>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

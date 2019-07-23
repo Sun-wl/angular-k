@@ -1,0 +1,154 @@
+<div class="tenantShopUpdate" id="tenantShopUpdate" ng-controller="DocumentCtrl">
+    <h1 class="table-ctn-title">编辑门店</h1>
+    <p class="table-ctn-p-blueBorder">接口简介</p>
+    <p class="table-ctn-p">更新门店信息接口,接口URL地址：/api/shop/update</p>
+    <div class="table-ctn-p-redBox">
+        <p class="table-ctn-p-red">门店编码是必传参数。其他参数，需要更新则传，且不能为空。</p>
+    </div>
+    <p class="table-ctn-p-blueBorder">请求参数说明</p>
+    <div class="table-ctn-table">
+        <div class="table-responsive">
+            <table class="table table-hover m-b-none">
+                <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>是否必传</th>
+                    <th>描述</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><strong>origin_shop_id</strong></td>
+                    <td>String</td>
+                    <td>是</td>
+                    <td>门店编码</td>
+                </tr>
+                <tr>
+                    <td>station_name</td>
+                    <td>String</td>
+                    <td>否</td>
+                    <td>门店名称</td>
+                </tr>
+                <tr>
+                    <td>city_code</td>
+                    <td>String</td>
+                    <td>否</td>
+                    <td>城市的code（<a class="blue" href="#/page/document/tenantCityList">查看各城市对应的code值</a>)</td>
+                </tr>
+                <tr>
+                    <td>area_name</td>
+                    <td>String</td>
+                    <td>否</td>
+                    <td>区域名称(如,浦东新区)</td>
+                </tr>
+                <tr>
+                    <td>station_address</td>
+                    <td>String</td>
+                    <td>否</td>
+                    <td>门店地址</td>
+                </tr>
+                <tr>
+                    <td>station_address_details</td>
+                    <td>String</td>
+                    <td>否</td>
+                    <td>门店详细地址</td>
+                </tr>
+                <tr>
+                    <td>lng</td>
+                    <td>Double</td>
+                    <td>否</td>
+                    <td>门店经度</td>
+                </tr>
+                <tr>
+                    <td>lat</td>
+                    <td>Double</td>
+                    <td>否</td>
+                    <td>门店纬度</td>
+                </tr>
+                <tr>
+                    <td>contact</td>
+                    <td>String</td>
+                    <td>否</td>
+                    <td>联系人姓名</td>
+                </tr>
+                <tr>
+                    <td>mobile</td>
+                    <td>String</td>
+                    <td>否</td>
+                    <td>联系人电话</td>
+                </tr>
+                <tr>
+                    <td>status</td>
+                    <td>Integer</td>
+                    <td>否</td>
+                    <td>门店状态（2-门店激活，1-停用）</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="table-ctn-json">
+        请求参数示例
+        <div class="table-ctn-jsonBody">
+            <pre class="brush: java;">
+                {
+                    "origin_shop_id": "13810001001",
+                    "station_name": "更新门店"
+                }
+            </pre>
+        </div>
+    </div>
+    <p class="table-ctn-p-blueBorder">返回结果</p>
+    <p class="table-ctn-p">返回JSON格式，以下为参数说明：</p>
+    <div class="table-ctn-table">
+        <div class="table-responsive">
+            <table class="table table-hover m-b-none">
+                <thead>
+                <tr>
+                    <th>参数名称</th>
+                    <th>类型</th>
+                    <th>描述</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>statusCode</td>
+                    <td>Integer</td>
+                    <td>响应状态，成功为"200"，失败为"300"</td>
+                </tr>
+                <tr>
+                    <td>message</td>
+                    <td>String</td>
+                    <td>如果错误则显示错误原因</td>
+                </tr>
+                <tr>
+                    <td>data</td>
+                    <td>Object</td>
+                    <td>响应结果，JSON对象，详见具体的接口描述</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="table-ctn-json">
+        正确的响应结果（JSON格式）
+        <div class="table-ctn-jsonBody">
+            <pre class="brush: java;">
+                {
+                    "statusCode": 200,
+                    "message": "成功"
+                }
+            </pre>
+        </div>
+    </div>
+    <div class="table-ctn-json">
+        失败的响应结果（JSON格式）
+        <div class="table-ctn-jsonBody">
+            <pre class="brush: java;">
+                {
+                    "message": 300,
+                    "message": "没有可以更新的参数,请重新核对"
+                }
+            </pre>
+        </div>
+    </div>
+</div>

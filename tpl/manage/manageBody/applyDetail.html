@@ -1,0 +1,59 @@
+<div class="applyDetail" id="applyDetail" ng-controller="ApplyDetailCtrl">
+    <div class="manage-title">
+        <div class="manage-title-body" ng-if="key">应用设置</div>
+        <div class="manage-title-body" ng-if="!key">创建应用</div>
+    </div>
+    <div class="manage-ctn">
+        <div class="manage-apply">
+            <div class="manage-apply-body" ng-if="key">
+                <div class="manage-apply-name">APP Key</div>
+                <div class="manage-apply-input key">
+                    {{key}}
+                </div>
+                <div class="manage-apply-space"></div>
+            </div>
+            <div class="manage-apply-body" ng-if="key">
+                <div class="manage-apply-name">APP secret</div>
+                <div class="manage-apply-input secret">
+                    {{entity.appSecret}}
+                </div>
+                <div class="manage-apply-space"></div>
+            </div>
+            <div class="manage-apply-body">
+                <div class="manage-apply-name">应用名称</div>
+                <div class="manage-apply-input name">
+                    <input type="text" class="form-control" ng-model="entity.name">
+                </div>
+                <div class="manage-apply-space"></div>
+            </div>
+            <div class="manage-apply-body">
+                <div class="manage-apply-name">回调地址</div>
+                <div class="manage-apply-input remark">
+                    <input type="text" class="form-control" ng-model="entity.stateCallback">
+                </div>
+                <div class="manage-apply-space"></div>
+            </div>
+            <div class="manage-apply-body">
+                <div class="manage-apply-name">项目备注</div>
+                <div class="manage-apply-input remark">
+                    <input type="text" class="form-control" ng-model="entity.remark">
+                </div>
+                <div class="manage-apply-space"></div>
+            </div>
+            <div class="manage-apply-tip">
+                <div class="manage-apply-del">
+                    <p class="manage-apply-delText" ng-if="key">删除应用 <span class="red">(谨慎操作)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除APP后无法恢复，请谨慎操作</p>
+                    <button class="del" ng-click="delApply(key)" ng-if="key">删除</button>
+                </div>
+                <div class="manage-apply-btn">
+                    <div class="manage-apply-btnSave">
+                        <button class="save" ng-click="save()">保存</button>
+                    </div>
+                    <div class="manage-apply-space"></div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

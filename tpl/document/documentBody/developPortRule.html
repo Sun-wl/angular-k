@@ -1,0 +1,67 @@
+<div class="developPortRule" id="developPortRule">
+    <h1 class="table-ctn-title">安全规范</h1>
+    <p class="table-ctn-p-blueBorder-bold">签名算法</p>
+    <p>签名生成的通用步骤如下：</p>
+    <div class="table-ctn-list">
+        <ul class="table-ctn-list-ul">
+            <li>第一步：将参与签名的参数按照键值(key)进行字典排序</li>
+            <li>第二步：将排序过后的参数，进行key和value字符串拼接</li>
+            <li>第三步：将拼接后的字符串首尾加上app_secret秘钥，合成签名字符串</li>
+            <li>第四步：对签名字符串进行MD5加密，生成32位的字符串</li>
+            <li>第五步：将签名生成的32位字符串转换为大写</li>
+        </ul>
+    </div>
+    <p class="table-ctn-p-blueBorder-bold">签名示例</p>
+    <p>以Java举例，假设签名的请求参数如下，其中涉及签名的app_secret假设为"appSecret"：</p>
+    <div class="table-ctn-json">
+        示例代码
+        <div class="table-ctn-jsonBody">
+            <pre class="brush: java;">
+                {
+                    "body": "{\"order_id\":\"20170301000001\"}",
+                    "timestamp": "1488363493",
+                    "signature": "B3C14758F4AF52AE8AA0D4CD1493B137",
+                    "app_key": "app_key",
+                    "v": "1.0"
+                }
+            </pre>
+        </div>
+    </div>
+    <p class="table-ctn-p-blueBorder-bold">签名生成过程：</p>
+    <div class="table-ctn-box">
+        <p class="table-ctn-p-boldTop">第一步：将参与签名的参数按照键值(key)进行字典排序</p>
+        <p>例如：将上述请求参数中的body、timestamp、app_key、v 进行字典排序。结果为：app_key、body、timestamp、v</p>
+        <p class="table-ctn-p-boldTop">第二步：将排序过后的参数，进行key和value字符串拼接</p>
+        <p>将参数中的key和value按照key的顺序进行字符串拼接。结果为：</p>
+        <p>app_keyapp_keybody{"order_id":"20170301000001"}timestamp1488363493v1.0</p>
+        <p class="table-ctn-p-boldTop">第三步：将拼接后的字符串首尾加上app_secret秘钥，合成签名字符串</p>
+        <p>将第二步的字符窜首尾拼接上app_secret。结果为：</p>
+        <p>appSecretapp_keyapp_keybody{"order_id":"20170301000001"}timestamp1488363493v1.0appSecret</p>
+        <p class="table-ctn-p-boldTop">第四步：对签名字符串进行MD5加密，生成32位的字符串</p>
+        <p>对生成签名字符串进行MD5加密。结果为：b3c14758f4af52ae8aa0d4cd1493b137</p>
+        <p class="table-ctn-p-boldTop">第五步：将签名生成的32位字符串转换为大写</p>
+        <p>将md5加密后的字符串转换为大写，结果为：B3C14758F4AF52AE8AA0D4CD1493B137</p>
+        <p class="table-ctn-p-boldTop">注：生成最终的签名的字符串：B3C14758F4AF52AE8AA0D4CD1493B137作为请求参数的signature的值传入即可</p>
+    </div>
+    <div class="table-ctn-json">
+        Java示例代码
+        <div class="table-ctn-jsonBody">
+            <script type="syntaxhighlighter" class="brush: java;"><![CDATA[
+                //Key值排序
+                Collection<String> keySet = requestMap.keySet();
+                List<pre> list = new ArrayList<pre>(keySet);
+                Collections.sort(list);
+
+                //拼凑签名字符串
+                StringBuffer signStr = new StringBuffer();
+                for(int i=0; i<list.size(); i++){
+                    String key = list.get(i);
+                    signStr.append(key + requestMap.get(key));}
+                //MD5签名
+                String mySign = MD5Encrypt.encrypt(appSecret + signStr.toString() + appSecret);
+
+                String sign = mySign.toUpperCase();
+            ]]></script>
+        </div>
+    </div>
+</div>

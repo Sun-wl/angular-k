@@ -1,0 +1,49 @@
+<div class="tenantRegister2" id="tenantRegister2" ng-controller="RegisterCtrl">
+    <h1 class="page-title">商户账号注册</h1>
+    <div class="tenant-body">
+        <div class="stage">
+            <div class="stage-body">
+                <img src="img/b1.png" alt="">
+                <p>账号信息</p>
+            </div>
+            <div class="stage-line"></div>
+            <div class="stage-body">
+                <img src="img/b2.png" alt="">
+                <p>企业信息</p>
+            </div>
+        </div>
+        <div class="tenant-info">
+            <div class="tenant-info-body">
+                <div class="tenant-info-name">商户全称</div>
+                <div class="tenant-info-ctn">
+                    <input type="text" class="" placeholder="请输入企业全称" ng-model="form.name">
+                </div>
+                <div class="tenant-info-last"></div>
+            </div>
+            <div class="tenant-info-body">
+                <div class="tenant-info-name">商户地址</div>
+                <div class="tenant-info-ctn">
+                    <input type="text" class="" placeholder="请输入企业地址" ng-model="form.address">
+                </div>
+                <div class="tenant-info-last"></div>
+            </div>
+            <div class="tenant-info-body">
+                <div class="tenant-info-name">联系人</div>
+                <div class="tenant-info-ctn">
+                    <input type="text" class="" placeholder="请输入联系人" ng-model="form.contact">
+                </div>
+                <div class="tenant-info-last"></div>
+            </div>
+            <!--<div class="tenant-info-body">-->
+                <!--<div class="tenant-info-name">联系电话</div>-->
+                <!--<div class="tenant-info-ctn">-->
+                    <!--<input type="text" class="" placeholder="请输入联系电话" ng-model="form.contactMobile">-->
+                <!--</div>-->
+                <!--<div class="tenant-info-last"></div>-->
+            <!--</div>-->
+        </div>
+        <div class="tenant-footer">
+            <button class="all-btn" ng-click="reg()">提交</button>
+        </div>
+    </div>
+</div>

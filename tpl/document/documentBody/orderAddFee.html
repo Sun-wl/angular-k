@@ -1,0 +1,65 @@
+<div class="orderAddFee" id="orderAddFee">
+    <h1 class="table-ctn-title">增加小费</h1>
+    <p class="table-ctn-p-blueBorder-bold">接口简介</p>
+    <p class="table-ctn-p">可以对待接单状态的订单增加小费。需要注意：订单的小费，以最新一次加小费动作的金额为准，故下一次增加小费额必须大于上一次小费额。</p>
+    <p class="table-ctn-p">接口调用URL地址：/api/order/addTip。</p>
+    <p class="table-ctn-p-blueBorder-bold">请求参数说明</p>
+    <div class="table-ctn-table">
+        <div class="table-responsive">
+            <table class="table table-hover m-b-none">
+                <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>是否必传</th>
+                    <th>描述</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>order_id</td>
+                    <td>String</td>
+                    <td>是</td>
+                    <td>第三方订单编号</td>
+                </tr>
+                <tr>
+                    <td>tipMoney</td>
+                    <td>Integer</td>
+                    <td>是</td>
+                    <td>小费金额 (单位 : 分)</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p class="table-ctn-p-blueBorder-bold">返回结果</p>
+    <p class="table-ctn-p">返回JSON格式，以下为参数说明：</p>
+    <div class="table-ctn-table">
+        <div class="table-responsive">
+            <table class="table table-hover m-b-none">
+                <thead>
+                <tr>
+                    <th>参数名称</th>
+                    <th>类型</th>
+                    <th>描述</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>statusCode</td>
+                    <td>Integer</td>
+                    <td>响应状态，成功为"200"，失败为"300"</td>
+                </tr>
+                <tr>
+                    <td>message</td>
+                    <td>String</td>
+                    <td>如果错误则显示错误原因</td>
+                </tr>
+                <tr>
+                    <td>data</td>
+                    <td>Object</td>
+                    <td>响应结果，JSON对象，详见具体的接口描述</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

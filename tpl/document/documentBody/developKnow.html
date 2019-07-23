@@ -1,0 +1,153 @@
+<div class="developKnow" id="developKnow" ng-controller="DocumentCtrl">
+    <h1 class="table-ctn-title">开发须知</h1>
+    <p class="table-ctn-p-blueBorder">申请成为开发者并获取app_key和app_secret</p>
+    <div class="table-ctn-list">
+        <ul>
+            <li>如果没有开发者账号，请<a class="blue" href="#/page/tenantRegister1">成为开发者</a></li>
+            <li>如果已有开发者账号，请先登录，并进入到管理中心</li>
+        </ul>
+    </div>
+    <div class="table-ctn-img">
+        <!--<div class="table-ctn-imgBody"></div>-->
+        <img src="img/develop.png" alt="">
+    </div>
+    <p class="table-ctn-p-blueBorder">API调用规范</p>
+    <div class="table-ctn-list">
+        <ul>
+            <li>所有接口都采用HTTP协议</li>
+            <li>所有接口都采用POST方式（包括查询接口）</li>
+            <li>请求和响应的数据都为JSON格式。注：请设置Header的Content-Type为application/json</li>
+            <li>采用UTF-8字符编码</li>
+            <li>所有的接口必须app_secret进行接口签名，规则见<a class="blue" href="#/page/document/developPortRule">接口签名规则</a></li>
+        </ul>
+    </div>
+    <p class="table-ctn-p-boldTitle">API请求参数说明</p>
+    <p class="table-ctn-p-boldTop">注：所有的API接口都包含如下参数（不同的接口只是参数body值不一样）：</p>
+    <div class="table-ctn-table">
+        <div class="table-responsive">
+            <table class="table table-hover m-b-none">
+                <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>是否必传</th>
+                    <th>描述</th>
+                    <th>默认值</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>app_key</td>
+                    <td>String</td>
+                    <td>是</td>
+                    <td>应用Key，对应开发者账号中的app_key</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>signature</td>
+                    <td>String</td>
+                    <td>是</td>
+                    <td>签名Hash值，参见：<a class="blue" href="#/page/document/developPortRule">接口签名规则</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>timestamp</td>
+                    <td>String</td>
+                    <td>是</td>
+                    <td>时间戳,单位秒，即unix-timestamp</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>v</td>
+                    <td>String</td>
+                    <td>是</td>
+                    <td>API版本</td>
+                    <td>1.0</td>
+                </tr>
+                <tr>
+                    <td>body</td>
+                    <td>String</td>
+                    <td>是</td>
+                    <td>业务参数，JSON字符串，详见具体的接口文档</td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="table-ctn-json">
+        示例代码
+        <div class="table-ctn-jsonBody">
+            <pre class="brush: java;">
+                {
+                    "body": "{\"order_id\":\"20170301000001\"}",
+                    "timestamp": "1488363493",
+                    "signature": "B3C14758F4AF52AE8AA0D4CD1493B137",
+                    "app_key": "app_key",
+                    "v": "1.0"
+                }
+            </pre>
+        </div>
+    </div>
+    <div class="table-ctn-p-redBox">
+        <p class="table-ctn-p-red">注：当没有业务参数的时候, body需要赋值为空字符串,即body:""。</p>
+    </div>
+    <p class="table-ctn-p-boldTitle">API响应结果说明</p>
+    <div class="table-ctn-table">
+        <div class="table-responsive">
+            <table class="table table-hover m-b-none">
+                <thead>
+                <tr>
+                    <th>参数名称</th>
+                    <th>类型</th>
+                    <th>描述</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>statusCode</td>
+                    <td>Integer</td>
+                    <td>响应返回码，参考接口返回码</td>
+                </tr>
+                <tr>
+                    <td>message</td>
+                    <td>String</td>
+                    <td>响应描述</td>
+                </tr>
+                <tr>
+                    <td>data</td>
+                    <td>Object</td>
+                    <td>响应结果，JSON对象，详见具体的接口描述</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="table-ctn-json">
+        正确的响应结果（JSON格式）
+        <div class="table-ctn-jsonBody">
+            <pre class="brush: java;">
+                {"statusCode":200,"data":{"field_name1":"test1","field_name2":"test2"},"code":0,"msg":""}
+            </pre>
+        </div>
+    </div>
+    <div class="table-ctn-json">
+        错误的响应结果（JSON格式）
+        <div class="table-ctn-jsonBody">
+            <pre class="brush: java;">
+                {"statusCode":300,"message":"签名错误"}
+            </pre>
+        </div>
+    </div>
+    <p class="table-ctn-p-blueBorder">环境说明：</p>
+    <div class="table-ctn-list">
+        <ul class="table-ctn-list-ul">
+            <li>测试域名：open.qa.gidoor.com</li>
+            <li>线上域名：open.gidoor.com</li>
+        </ul>
+    </div>
+    <div class="table-ctn-p-redBox">
+        <p class="table-ctn-p-red">1. 在线上环境注册后，账号信息会自动同步到测试环境。</p>
+        <p class="table-ctn-p-red">2. 在进行接口调试时，域名切换到测试域名。</p>
+        <p class="table-ctn-p-red">3. 所有接口对接调试完成后，可以切换到线上环境域名。</p>
+        <p class="table-ctn-p-red">4. 测试环境仅供接口对接测试。</p>
+    </div>
+</div>

@@ -1,0 +1,230 @@
+<div class="orderNew" id="orderNew">
+    <h1 class="table-ctn-title">新增订单</h1>
+    <p class="table-ctn-p-blueBorder-bold">接口简介</p>
+    <p>新增配送单接口</p>
+    <div class="table-ctn-p-redBox">
+        <p class="table-ctn-p-red">接口调用URL地址：/api/order/add。</p>
+    </div>
+    <p class="table-ctn-p-blueBorder-bold">请求参数说明</p>
+    <div class="table-ctn-table">
+        <div class="table-responsive">
+            <table class="table table-hover m-b-none">
+                <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>必传</th>
+                    <th>描述</th>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td>shop_no</td>
+                    <td>String</td>
+                    <td>是</td>
+                    <td>门店编码</td>
+                </tr>
+                <tr>
+                    <td>origin_id</td>
+                    <td>String</td>
+                    <td>是</td>
+                    <td>第三方订单ID</td>
+                </tr>
+                <tr>
+                    <td>order_sn</td>
+                    <td>String</td>
+                    <td>否</td>
+                    <td>订单流水号</td>
+                </tr>
+                <tr>
+                    <td><strong>cityCode</strong></td>
+                    <td>String</td>
+                    <td>是</td>
+                    <td>
+                        订单所在城市的code（<a class="blue" href="#/page/document/tenantCityList">查看各城市对应的code值</a>)
+                    </td>
+                </tr>
+                <tr>
+                    <td>rateTime</td>
+                    <td>Integer</td>
+                    <td>是</td>
+                    <td>时效(0:为不限 其他数值为X分钟内)</td>
+                </tr>
+                <tr>
+                    <td>serviceMoney</td>
+                    <td>Integer</td>
+                    <td>是</td>
+                    <td>配送费(单位: 分)</td>
+                </tr>
+                <tr>
+                    <td>from_name</td>
+                    <td>String</td>
+                    <td>是</td>
+                    <td>发货人姓名</td>
+                </tr>
+                <tr>
+                    <td>fromMobile</td>
+                    <td>String</td>
+                    <td>是</td>
+                    <td>发货人联系方式</td>
+                </tr>
+                <tr>
+                    <td>fromAddress</td>
+                    <td>String</td>
+                    <td>是</td>
+                    <td>发货人地址</td>
+                </tr>
+                <tr>
+                    <td>fromAddressDetails</td>
+                    <td>String</td>
+                    <td>否</td>
+                    <td>发货人详细地址/门牌号</td>
+                </tr>
+                <tr>
+                    <td>fromLat</td>
+                    <td>Double</td>
+                    <td>是</td>
+                    <td>发货人地址维度（高德坐标系）</td>
+                </tr>
+                <tr>
+                    <td>fromLng</td>
+                    <td>Double</td>
+                    <td>是</td>
+                    <td>发货人地址经度（高德坐标系）</td>
+                </tr>
+                <tr>
+                    <td>toName</td>
+                    <td>String</td>
+                    <td>是</td>
+                    <td>收货人姓名</td>
+                </tr>
+                <tr>
+                    <td>toMobile</td>
+                    <td>String</td>
+                    <td>是</td>
+                    <td>收货人联系方式</td>
+                </tr>
+                <tr>
+                    <td>toAddress</td>
+                    <td>String</td>
+                    <td>是</td>
+                    <td>收货人地址</td>
+                </tr>
+                <tr>
+                    <td>toAddressDetails</td>
+                    <td>String</td>
+                    <td>否</td>
+                    <td>收货人详细地址/门牌号</td>
+                </tr>
+                <tr>
+                    <td>toLat</td>
+                    <td>Double</td>
+                    <td>是</td>
+                    <td>收货人地址维度（高德坐标系）</td>
+                </tr>
+                <tr>
+                    <td>toLng</td>
+                    <td>Double</td>
+                    <td>是</td>
+                    <td>收货人地址经度（高德坐标系）</td>
+                </tr>
+                <tr>
+                    <td>tipMoney</td>
+                    <td>Integer</td>
+                    <td>否</td>
+                    <td>小费金额 (单位 : 分)</td>
+                </tr>
+                <tr>
+                    <td>createTime</td>
+                    <td>Long</td>
+                    <td>是</td>
+                    <td>订单创建时间（时间戳,以秒计算时间，即unix-timestamp）</td>
+                </tr>
+                <tr>
+                    <td>remark</td>
+                    <td>String</td>
+                    <td>否</td>
+                    <td>订单备注</td>
+                </tr>
+                <tr>
+                    <td>goodsType</td>
+                    <td>Integer</td>
+                    <td>是</td>
+                    <td>订单商品类型：1、餐饮 2、包裹 3、揽件 4、鲜花  6、其他 9、生鲜</td>
+                </tr>
+                <tr>
+                    <td>goodsList</td>
+                    <td>[]</td>
+                    <td>否</td>
+                    <td>商品对象的数组 name 为商品名称 num 为商品数量</td>
+                </tr>
+                <tr>
+                    <td>weight</td>
+                    <td>Double</td>
+                    <td>否</td>
+                    <td>物品重量</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p class="table-ctn-p-blueBorder-bold">返回结果</p>
+    <p>返回JSON格式，以下为参数说明：</p>
+    <div class="table-ctn-table">
+        <div class="table-responsive">
+            <table class="table table-hover m-b-none">
+                <thead>
+                <tr>
+                    <th>参数名称</th>
+                    <th>类型</th>
+                    <th>描述</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>statusCode</td>
+                    <td>Integer</td>
+                    <td>响应状态，成功为"200"，失败为"300"</td>
+                </tr>
+                <tr>
+                    <td>message</td>
+                    <td>String</td>
+                    <td>如果错误则显示错误原因</td>
+                </tr>
+                <tr>
+                    <td>data</td>
+                    <td>Object</td>
+                    <td>响应结果，JSON对象，详见具体的接口描述</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p>data业务参数：</p>
+    <div class="table-ctn-table">
+        <div class="table-responsive">
+            <table class="table table-hover m-b-none">
+                <thead>
+                <tr>
+                    <th>参数名称</th>
+                    <th>类型</th>
+                    <th>描述</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>orderNo</td>
+                    <td>String</td>
+                    <td>运单号</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="table-ctn-json">
+        正确的响应结果（JSON格式）
+        <div class="table-ctn-jsonBody">
+            <pre class="brush: java;">
+            {"statusCode":200,"data":{"orderNo":"3581510595300014"},"msg":"成功"}
+            </pre>
+        </div>
+    </div>
+</div>

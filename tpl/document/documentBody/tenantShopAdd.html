@@ -1,0 +1,280 @@
+<div class="tenantShopAdd" id="tenantShopAdd" ng-controller="DocumentCtrl">
+    <h1 class="table-ctn-title">新增门店</h1>
+    <p class="table-ctn-p-blueBorder">接口简介</p>
+    <p class="table-ctn-p">批量新增门店接口,接口URL地址：/api/shop/add。</p>
+    <div class="table-ctn-p-redBox">
+        <p class="table-ctn-p-red">1. 门店编码可自定义，但必须唯一，若不填写，则系统自动生成。发单时用于确认发单门店</p>
+        <p class="table-ctn-p-red">2. 该接口为批量接口,业务参数为数组</p>
+    </div>
+    <p class="table-ctn-p-blueBorder">请求参数说明</p>
+    <div class="table-ctn-table">
+        <div class="table-responsive">
+            <table class="table table-hover m-b-none">
+                <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>是否必传</th>
+                    <th>描述</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>origin_shop_id</td>
+                    <td>String</td>
+                    <td>否</td>
+                    <td>门店编码,可自定义,但必须唯一;若不填写,则系统自动生成</td>
+                </tr>
+                <tr>
+                    <td><strong>station_name</strong></td>
+                    <td>String</td>
+                    <td>是</td>
+                    <td>门店名称</td>
+                </tr>
+                <tr>
+                    <td><strong>city_code</strong></td>
+                    <td>String</td>
+                    <td>是</td>
+                    <td>所在城市的code（<a class="blue" href="#/page/document/tenantCityList">查看各城市对应的code值</a>)</td>
+                </tr>
+                <tr>
+                    <td><strong>area_name</strong></td>
+                    <td>String</td>
+                    <td>是</td>
+                    <td>区域名称(如,浦东新区)</td>
+                </tr>
+                <tr>
+                    <td><strong>station_address</strong></td>
+                    <td>String</td>
+                    <td>是</td>
+                    <td>门店地址</td>
+                </tr>
+                <tr>
+                    <td>station_address_details</td>
+                    <td>String</td>
+                    <td>否</td>
+                    <td>门店详细地址/门牌号</td>
+                </tr>
+                <tr>
+                    <td><strong>lng</strong></td>
+                    <td>Double</td>
+                    <td>是</td>
+                    <td>门店经度</td>
+                </tr>
+                <tr>
+                    <td><strong>lat</strong></td>
+                    <td>Double</td>
+                    <td>是</td>
+                    <td>门店纬度</td>
+                </tr>
+                <tr>
+                    <td><strong>contact</strong></td>
+                    <td>String</td>
+                    <td>是</td>
+                    <td>联系人姓名</td>
+                </tr>
+                <tr>
+                    <td><strong>mobile</strong></td>
+                    <td>String</td>
+                    <td>是</td>
+                    <td>联系人电话</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="table-ctn-json">
+        请求参数示例
+        <div class="table-ctn-jsonBody">
+            <pre class="brush: java;">
+                [
+                    {
+                        "origin_shop_id": "shop001",
+                        "station_name": "新门店1",
+                        "area_name": "浦东新区",
+                        "station_address": "地址1",
+                        "station_address_details": "201室",
+                        "contact": "xxx",
+                        "city_code": "021",
+                        "lng": 121.515014,
+                        "lat": 31.229081,
+                        "mobile": "15012345678"
+                    },
+                    {
+                        "origin_shop_id": "3234",
+                        "station_name": "新门店2",
+                        "area_name": "长宁区",
+                        "station_address": "地址2",
+                        "station_address_details": "201室",
+                        "contact": "xxx",
+                        "city_code": "021",
+                        "lng": 121.515014,
+                        "lat": 31.229081,
+                        "mobile": "17012345678"
+                    }
+                ]
+            </pre>
+        </div>
+    </div>
+    <p class="table-ctn-p-blueBorder">返回结果</p>
+    <p class="table-ctn-p">返回JSON格式，以下为参数说明：</p>
+    <div class="table-ctn-table">
+        <div class="table-responsive">
+            <table class="table table-hover m-b-none">
+                <thead>
+                <tr>
+                    <th>参数名称</th>
+                    <th>类型</th>
+                    <th>描述</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>statusCode</td>
+                    <td>Integer</td>
+                    <td>响应状态，成功为"200"，失败为"300"</td>
+                </tr>
+                <tr>
+                    <td>message</td>
+                    <td>String</td>
+                    <td>如果错误则显示错误原因</td>
+                </tr>
+                <tr>
+                    <td>data</td>
+                    <td>Object</td>
+                    <td>响应结果，JSON对象，详见具体的接口描述</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="table-ctn-table">
+        <div class="table-responsive">
+            <table class="table table-hover m-b-none">
+                <thead>
+                <tr>
+                    <th>参数名称</th>
+                    <th>类型</th>
+                    <th>描述</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>success</td>
+                    <td>Integer</td>
+                    <td>成功导入门店的数量</td>
+                </tr>
+                <tr>
+                    <td>successList</td>
+                    <td>List</td>
+                    <td>成功导入的门店</td>
+                </tr>
+                <tr>
+                    <td>failedList</td>
+                    <td>List</td>
+                    <td>导入失败门店编号以及原因</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="table-ctn-json">
+        正确的响应结果（JSON格式）
+        <div class="table-ctn-jsonBody">
+            <pre class="brush: java;">
+                {
+                    "data": {
+                        "success": 2,
+                        "successList": [
+                            {
+                                "mobile": "17216638002",
+                                "lng": 121.515014,
+                                "lat": 31.229081,
+                                "station_name": "新门店1",
+                                "origin_shop_id": "shop001",
+                                "contact": "xxx",
+                                "station_address": "测试企业地址",
+                                "station_address_details": "201室",
+                                "city_code": "上海",
+                                "area_name": "浦东新区"
+                            },
+                            {
+                                "mobile": "13216638003",
+                                "lng": 121.515014,
+                                "lat": 31.229081,
+                                "station_name": "新门店2",
+                                "origin_shop_id": "73749-291",
+                                "contact": "xxx",
+                                "station_address": "测试企业地址",
+                                "station_address_details": "201室",
+                                "city_code": "上海",
+                                "area_name": "浦东新区"
+                            }
+                        ],
+                        "failedList": []
+                    },
+                    "statusCode": 200,
+                    "message": "成功"
+                }
+            </pre>
+        </div>
+    </div>
+    <div class="table-ctn-json">
+        失败的响应结果（JSON格式）
+        <div class="table-ctn-jsonBody">
+            <pre class="brush: java;">
+                {
+                    "data": {
+                        "success": 0,
+                        "successList": [],
+                        "failedList": [
+                            {
+                                "shopNo": "123",
+                                "msg": "门店编号已存在",
+                                "shopName": "新门店1"
+                            },
+                            {
+                                "shopNo": "20161129",
+                                "msg": "门店编号已存在",
+                                "shopName": "新门店2"
+                            }
+                        ]
+                    },
+                    "statusCode": 300,
+                    "message": "创建门店失败"
+                }
+            </pre>
+        </div>
+    </div>
+    <div class="table-ctn-json">
+        部分正确的响应结果（JSON格式）
+        <div class="table-ctn-jsonBody">
+            <pre class="brush: java;">
+                {
+                    "data": {
+                        "success": 1,
+                        "successList": [
+                            {
+                                "mobile": "13212345678",
+                                "lng": 121.515014,
+                                "lat": 31.229081,
+                                "station_name": "新门店1",
+                                "origin_shop_id": "73749-289",
+                                "contact": "xxx",
+                                "station_address": "测试企业地址",
+                                "station_address_details": "201室",
+                                "city_code": "上海",
+                                "area_name": "浦东新区"
+                            }
+                        ],
+                        "failedList": [
+                            {
+                                "shopNo": "20161129",
+                                "msg": "门店编号已存在"
+                            }
+                        ]
+                    },
+                    "statusCode": 200,
+                    "message": "成功"
+                }
+            </pre>
+        </div>
+    </div>
+</div>

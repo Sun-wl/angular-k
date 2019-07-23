@@ -1,0 +1,101 @@
+<div ng-controller="LoginCtrl">
+    <div class="manage" id="manage" ng-controller="ManageCtrl">
+        <div class="table-body" ng-controller="TableCtrl">
+            <!-- list -->
+            <div class="table-nav">
+                <ul class="nav">
+                    <li>
+                        <p href class="auto table-nav-title">
+                            <span>应用管理</span>
+                        </p>
+                        <ul class="nav nav-sub dk manage-ul">
+                            <li class="order-li">
+                                <a href="#page/manage/order" class="auto">
+                                    <img src="img/order.png" alt="">
+                                    <span>订单列表</span>
+                                </a>
+                            </li>
+                            <li class="apply-li">
+                                <a href class="auto" ng-click="toApply()">
+                                    <img src="img/myApply.png" alt="">
+                                    <span>应用列表</span>
+                                </a>
+                            </li>
+                            <li class="shop-li">
+                                <a href="#page/manage/shop" class="auto">
+                                    <img src="img/shop.png" alt="">
+                                    <span>门店管理</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--<li>-->
+                        <!--<p href class="auto table-nav-title">-->
+                            <!--<span>应用管理</span>-->
+                        <!--</p>-->
+                    <!--</li>-->
+                    <!--<li class="order-li">-->
+                        <!--<a href="#page/manage/order" class="auto">-->
+                            <!--<img src="img/order.png" alt="">-->
+                            <!--<span>订单列表</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li class="apply-li">-->
+                        <!--<a href class="auto" ng-click="toApply()">-->
+                            <!--<img src="img/myApply.png" alt="">-->
+                            <!--<span>应用列表</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li class="shop-li">-->
+                        <!--<a href="#page/manage/shop" class="auto">-->
+                            <!--<img src="img/shop.png" alt="">-->
+                            <!--<span>门店管理</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+
+                </ul>
+                <ul class="nav">
+                    <li>
+                        <p href class="auto table-nav-title">
+                            <span>账户中心</span>
+                        </p>
+                        <ul class="nav nav-sub dk manage-ul">
+                            <li class="info-li">
+                                <a href="#page/manage/info" class="auto">
+                                    <img src="img/info.png" alt="">
+                                    <span>基本资料</span>
+                                </a>
+                            </li>
+                            <li class="updatePassword-li">
+                                <a href="#page/manage/updatePassword" class="auto">
+                                    <img src="img/updatePassword.png" alt="">
+                                    <span>修改密码</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--<li>-->
+                        <!--<p href class="auto table-nav-title">-->
+                            <!--<span>账户中心</span>-->
+                        <!--</p>-->
+                    <!--</li>-->
+                    <!--<li class="info-li">-->
+                        <!--<a href="#page/manage/info" class="auto">-->
+                            <!--<img src="img/info.png" alt="">-->
+                            <!--<span>基本资料</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li class="updatePassword-li">-->
+                        <!--<a href="#page/manage/updatePassword" class="auto">-->
+                            <!--<img src="img/updatePassword.png" alt="">-->
+                            <!--<span>修改密码</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+
+                </ul>
+            </div>
+            <!-- / list -->
+            <div class="table-ctn" ui-view></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="updateInfo" id="updateInfo" ng-controller="updateInfoCtrl">
+    <div class="manage-title">
+        <div class="manage-title-body">修改资料</div>
+    </div>
+    <div class="manage-ctn">
+        <div class="manage-info">
+            <div class="manage-info-body">
+                <div class="manage-info-name">商户全称</div>
+                <div class="manage-info-input">
+                    <input type="text" class="form-control" ng-model="entity.name">
+                </div>
+            </div>
+            <div class="manage-info-body">
+                <div class="manage-info-name">商户地址</div>
+                <div class="manage-info-input">
+                    <input type="text" class="form-control" ng-model="entity.address">
+                </div>
+            </div>
+            <div class="manage-info-body">
+                <div class="manage-info-name">联系人</div>
+                <div class="manage-info-input">
+                    <input type="text" class="form-control" ng-model="entity.contact">
+                </div>
+            </div>
+            <div class="manage-info-body">
+                <div class="manage-info-btns">
+                    <button class="cancelBtn" ui-sref="page.manage.info">取消</button>
+                    <button class="saveBtn" ng-click="save()">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

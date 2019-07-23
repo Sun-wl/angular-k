@@ -1,0 +1,36 @@
+<div class="info" id="info" ng-controller="infoCtrl">
+    <div class="manage-title">
+        <div class="manage-title-body">基本资料</div>
+    </div>
+    <div class="manage-ctn">
+        <div class="manage-info">
+            <div class="manage-info-body">
+                <div class="manage-info-name">商户全称</div>
+                <div class="manage-info-text">
+                    {{entity.name}}
+                </div>
+                <button class="btn bgBlue edit" ui-sref="page.manage.updateInfo">编辑</button>
+            </div>
+            <div class="manage-info-body">
+                <div class="manage-info-name">商户地址</div>
+                <div class="manage-info-text">
+                    {{entity.address}}
+                </div>
+            </div>
+            <div class="manage-info-body">
+                <div class="manage-info-name">联系人</div>
+                <div class="manage-info-text">
+                    {{entity.contact}}
+                </div>
+            </div>
+
+            <div class="manage-info-body mobile">
+                <div class="manage-info-name">注册手机号</div>
+                <div class="manage-info-text">
+                    {{entity.mobile}} <span>注册手机号不能编辑修改</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

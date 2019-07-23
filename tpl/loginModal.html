@@ -1,0 +1,27 @@
+<div class="modal-header login-header">
+    商户账号登录
+</div>
+<div class='back'><a href ng-click="cancel()" ><img src="img/delete.png" alt=""></a></div>
+<div class="modal-body ng-scope login-body">
+    <div class="input-group">
+        <span class="input-group-addon login-img" id="user">
+            <img src="img/user.png" alt="">
+        </span>
+        <input type="number" class="form-control login-input username" placeholder="请输入您的账号" ng-change="mobileOver()"
+               aria-describedby="user" ng-model="form.userName" autofocus>
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon login-img" id="password">
+            <img src="img/password.png" alt="">
+        </span>
+        <input type="password" class="form-control login-input password" placeholder="请输入您的密码"
+               aria-describedby="password" ng-model="form.password">
+    </div>
+    <button class="login-btn" ng-click="login()">登录</button>
+    <div class="login-tip">
+        <a href ng-click="toReset()">重置密码</a>
+        <a class="toRegister" href ng-click="toRegister()">立即注册</a>
+    </div>
+</div>
+
+

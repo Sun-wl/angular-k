@@ -1,0 +1,33 @@
+<div class="apply" id="apply">
+    <div class="manage-ctn">
+        <div class="manage-apply">
+            <div class="manage-body">
+                <img class="manage-create-img" src="img/addBig.png" alt="">
+                <p class="manage-create-p">创建支付应用</p>
+                <p class="manage-create-p">创建应用，完成应用设置</p>
+
+                <!--<script type="text/ng-template" id="applyCreateModal.html">-->
+                    <!--<div ng-include="'tpl/manage/manageBody/applyCreateModal.html'"></div>-->
+                <!--</script>-->
+                <a href="#page/manage/applyDetail">
+                    <button class="manage-create-btn">创建新的应用</button>
+                </a>
+            </div>
+            <div class="manage-body" ng-repeat="app in apps">
+                <div class="manage-apply-ctn">
+                    <div class="manage-apply-title">应用名称</div>
+                    <div class="manage-apply-ctnText">{{app.name}}</div>
+                </div>
+                <div class="manage-apply-ctn">
+                    <div class="manage-apply-title">App Key</div>
+                    <div class="manage-apply-ctnText">{{app.appKey}}</div>
+                </div>
+                <div class="manage-apply-ctn">
+                    <div class="manage-apply-title">创建时间</div>
+                    <div class="manage-apply-ctnText">{{app.createTime}}</div>
+                </div>
+                <a href="#page/manage/applyDetail?key={{app.appKey}}"><button class="manage-apply-detail">查看详情</button></a>
+            </div>
+        </div>
+    </div>
+</div>

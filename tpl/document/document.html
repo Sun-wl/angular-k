@@ -1,0 +1,150 @@
+<div ng-controller="LoginCtrl">
+    <div class="document" id="document" ng-controller="DocumentCtrl">
+        <div class="table-body" ng-controller="TableCtrl">
+            <!-- list -->
+            <div class="table-nav">
+                <ul class="nav">
+                    <li>
+                        <a href class="auto">
+                        <span class="pull-right text-muted">
+                          <i class="fa fa-fw fa-angle-right"></i>
+                          <i class="fa fa-fw fa-angle-down hide"></i>
+                        </span>
+                            <span>开发必读</span>
+                        </a>
+                        <ul class="nav nav-sub dk hide">
+                            <li class="developKnow-li" ui-sref-active="active">
+                                <a href="#page/document/developKnow">
+                                    <span>开发须知</span>
+                                </a>
+                            </li>
+                            <li class="developPortRule-li" ui-sref-active="active">
+                                <a href="#page/document/developPortRule">
+                                    <span>接口签名规则</span>
+                                </a>
+                            </li>
+                            <li class="developPortCode-li" ui-sref-active="active">
+                                <a href="#page/document/developPortCode">
+                                    <span>接口返回码</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href class="auto">
+                        <span class="pull-right text-muted">
+                          <i class="fa fa-fw fa-angle-right"></i>
+                          <i class="fa fa-fw fa-angle-down hide"></i>
+                        </span>
+                            <span>订单管理</span>
+                        </a>
+                        <ul class="nav nav-sub dk hide">
+                            <li class="orderNew-li" ui-sref-active="active">
+                                <a href="#page/document/orderNew">
+                                    <span>新增订单</span>
+                                </a>
+                            </li>
+                            <li class="orderAddFee-li" ui-sref-active="active">
+                                <a href="#page/document/orderAddFee">
+                                    <span>订单增加小费</span>
+                                </a>
+                            </li>
+                            <li class="orderCallback-li" ui-sref-active="active">
+                                <a href="#page/document/orderCallback">
+                                    <span>订单回调</span>
+                                </a>
+                            </li>
+                            <li class="orderStatusQuery-li" ui-sref-active="active">
+                                <a href="#page/document/orderStatusQuery">
+                                    <span>订单状态查询</span>
+                                </a>
+                            </li>
+                            <li class="orderCancel-li" ui-sref-active="active">
+                                <a href="#page/document/orderCancel">
+                                    <span>订单取消</span>
+                                </a>
+                            </li>
+                            <li class="orderCancelReason-li" ui-sref-active="active">
+                                <a href="#page/document/orderCancelReason">
+                                    <span>订单取消原因</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href class="auto">
+                        <span class="pull-right text-muted">
+                          <i class="fa fa-fw fa-angle-right"></i>
+                          <i class="fa fa-fw fa-angle-down hide"></i>
+                        </span>
+                            <span>商户管理</span>
+                        </a>
+                        <ul class="nav nav-sub dk hide">
+                            <li class="orderNew-li" ui-sref-active="active">
+                                <a href="#page/document/tenantCityList">
+                                    <span>城市信息</span>
+                                </a>
+                            </li>
+                            <li class="orderAddFee-li" ui-sref-active="active">
+                                <a href="#page/document/tenantShopAdd">
+                                    <span>门店创建</span>
+                                </a>
+                            </li>
+                            <li class="orderCallback-li" ui-sref-active="active">
+                                <a href="#page/document/tenantShopUpdate">
+                                    <span>门店更新</span>
+                                </a>
+                            </li>
+                            <li class="orderStatusQuery-li" ui-sref-active="active">
+                                <a href="#page/document/tenantShopDetail">
+                                    <span>门店详情</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href class="auto">
+                        <span class="pull-right text-muted">
+                          <i class="fa fa-fw fa-angle-right"></i>
+                          <i class="fa fa-fw fa-angle-down hide"></i>
+                        </span>
+                            <span>更新日志</span>
+                        </a>
+                        <ul class="nav nav-sub dk hide">
+                            <li class="updateLog-li" ui-sref-active="active">
+                                <a href="#page/document/updateLog">
+                                    <span>更新日志</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href class="auto">
+                        <span class="pull-right text-muted">
+                          <i class="fa fa-fw fa-angle-right"></i>
+                          <i class="fa fa-fw fa-angle-down hide"></i>
+                        </span>
+                            <span>开发FAQ</span>
+                        </a>
+                        <ul class="nav nav-sub dk hide">
+                            <li class="question-li" ui-sref-active="active">
+                                <a href="#page/document/question">
+                                    <span>常见问题</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- / list -->
+            <div class="table-ctn" ui-view>
+                <div class="document-ctn">
+                    <p class="document-title">阅读对象</p>
+                    <p class="document-text">本文阅读对象：</p>
+                    <p class="document-text-indent">商户系统集成配送服务涉及的技术架构师，研发工程师，测试工程师，系统运维工程师。</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

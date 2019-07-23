@@ -1,0 +1,67 @@
+<div class="orderCancelReason" id="orderCancelReason">
+    <h1 class="table-ctn-title">获取取消原因</h1>
+    <p class="table-ctn-p-blueBorder-bold">接口简介</p>
+    <p class="table-ctn-p">调用取消订单接口时，需要传递取消原因ID，通过此接口获取订单取消理由列表</p>
+    <p class="table-ctn-p">接口调用请求说明，URL地址：/api/order/cancel/reasons。</p>
+    <p class="table-ctn-p-blueBorder-bold">请求参数说明</p>
+    <p class="table-ctn-p">无</p>
+    <div class="table-ctn-p-redBox">
+        <p class="table-ctn-p-red">注：当没有业务参数的时候, body需要赋值为空字符串,即body:""。</p>
+    </div>
+    <p class="table-ctn-p-blueBorder-bold">返回结果</p>
+    <p class="table-ctn-p">返回JSON格式，以下为参数说明：</p>
+    <div class="table-ctn-table">
+        <div class="table-responsive">
+            <table class="table table-hover m-b-none">
+                <thead>
+                <tr>
+                    <th>参数名称</th>
+                    <th>类型</th>
+                    <th>描述</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>statusCode</td>
+                    <td>Integer</td>
+                    <td>响应状态，成功为"200"，失败为"300"</td>
+                </tr>
+                <tr>
+                    <td>message</td>
+                    <td>String</td>
+                    <td>如果错误则显示错误原因</td>
+                </tr>
+                <tr>
+                    <td>data</td>
+                    <td>Object</td>
+                    <td>响应结果，JSON对象，详见具体的接口描述</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p class="table-ctn-p">data业务参数：</p>
+    <div class="table-ctn-table">
+        <div class="table-responsive">
+            <table class="table table-hover m-b-none">
+                <thead>
+                <tr>
+                    <th>参数名称</th>
+                    <th>类型</th>
+                    <th>描述</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>id</td>
+                    <td>Integer</td>
+                    <td>理由编号</td>
+                </tr>
+                <tr>
+                    <td>reason</td>
+                    <td>String</td>
+                    <td>取消理由</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

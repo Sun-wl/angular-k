@@ -1,0 +1,70 @@
+<div class="simulateCancel" id="simulateCancel">
+    <h1 class="table-ctn-title">取消订单(仅在测试环境供调试使用)</h1>
+    <p class="table-ctn-p-blueBorder-bold">接口简介</p>
+    <p class="table-ctn-p">在测试环境中，可调用此接口接受订单，检测回调。</p>
+    <div class="table-ctn-p-redBox">
+        <p class="table-ctn-p-red">注：接口仅限于测试环境调试使用，且触发回调URL成功后，接口直接返回成功</p>
+    </div>
+    <p class="table-ctn-p">接口调用URL地址：/api/order/test/cancel。</p>
+    <p class="table-ctn-p-blueBorder-bold">请求参数说明</p>
+    <div class="table-ctn-table">
+        <div class="table-responsive">
+            <table class="table table-hover m-b-none">
+                <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>必传</th>
+                    <th>描述</th>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td><strong>origin_id</strong></td>
+                    <td>String</td>
+                    <td>是</td>
+                    <td>第三方订单id</td>
+                </tr>
+                <tr>
+                    <td><strong>cancel_reason</strong></td>
+                    <td>String</td>
+                    <td>是</td>
+                    <td>取消描述</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p class="table-ctn-p-blueBorder-bold">返回结果</p>
+    <p>返回JSON格式，以下为参数说明：</p>
+    <div class="table-ctn-table">
+        <div class="table-responsive">
+            <table class="table table-hover m-b-none">
+                <thead>
+                <tr>
+                    <th>参数名称</th>
+                    <th>类型</th>
+                    <th>描述</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>statusCode</td>
+                    <td>Integer</td>
+                    <td>响应状态，成功为"200"，失败为"300"</td>
+                </tr>
+                <tr>
+                    <td>message</td>
+                    <td>String</td>
+                    <td>如果错误则显示错误原因</td>
+                </tr>
+                <tr>
+                    <td>data</td>
+                    <td>Object</td>
+                    <td>响应结果，JSON对象，详见具体的接口描述</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,154 @@
+<style>
+    @media (min-width: 768px){
+        .modal-content {
+            width: 800px;
+        }
+    }
+    @media (max-width: 768px){
+        .modal-content {
+            width: 400px;
+        }
+    }
+    .modal-dialog {
+        margin-top: 100px;
+    }
+
+</style>
+
+<div class="modal-header orderDetailHeader">
+    订单详情
+    <a href="" class="blue" ng-click="cancel()">关闭</a>
+</div>
+<div class="modal-body ng-scope orderDetailCtn" id="">
+    <div class="orderDetailBody">
+        <h1>基本资料</h1>
+        <div class="orderDetails">
+            <div class="orderDetailsName">西客订单号</div>
+            <div class="orderDetailsCtn">{{entity.orderNo}}</div>
+            <div class="orderDetailsName">订单状态</div>
+            <div class="orderDetailsCtn">
+                <span ng-if="entity.statusText">{{entity.statusText}}</span>
+                <span ng-if="!entity.statusText">无</span>
+            </div>
+            <div class="orderDetailsName">第三方订单号</div>
+            <div class="orderDetailsCtn">
+                <span ng-if="entity.originId">{{entity.originId}}</span>
+                <span ng-if="!entity.originId">无</span>
+            </div>
+            <div class="orderDetailsName">配送距离</div>
+            <div class="orderDetailsCtn">
+                <span ng-if="entity.distance">{{entity.distance}}km</span>
+                <span ng-if="!entity.distance">无</span>
+            </div>
+            <div class="orderDetailsName">物品名称</div>
+            <div class="orderDetailsCtn">
+                <span ng-if="entity.orderDeliveryGoodsList.length" ng-if="goods in entity.orderDeliveryGoodsList">
+                    {{goods.name}}&nbsp;&nbsp;&nbsp;
+                </span>
+                <span ng-if="!entity.storeName.length">无</span>
+            </div>
+            <div class="orderDetailsName">城市</div>
+            <div class="orderDetailsCtn">
+                <span ng-if="entity.cityName">{{entity.cityName}}</span>
+                <span ng-if="!entity.cityName">无</span>
+            </div>
+            <div class="orderDetailsName">物品数量</div>
+            <div class="orderDetailsCtn">
+                <span ng-if="entity.orderDeliveryGoodsList.length" ng-if="goods in entity.orderDeliveryGoodsList">
+                    {{goods.num}}&nbsp;&nbsp;&nbsp;
+                </span>
+                <span ng-if="!entity.storeName.length">0</span>
+            </div>
+            <div class="orderDetailsName">备注信息</div>
+            <div class="orderDetailsCtn">
+                <span ng-if="entity.remark">{{entity.remark}}</span>
+                <span ng-if="!entity.remark">无</span>
+            </div>
+        </div>
+    </div>
+    <div class="orderDetailBody">
+        <h1>门店信息</h1>
+        <div class="orderDetails">
+            <div class="orderDetailsName">门店编码</div>
+            <div class="orderDetailsCtn">
+                <span ng-if="entity.originShopId">{{entity.originShopId}}</span>
+                <span ng-if="!entity.originShopId">无</span>
+            </div>
+            <div class="orderDetailsName">门店名称</div>
+            <div class="orderDetailsCtn">
+                <span ng-if="entity.storeName">{{entity.storeName}}</span>
+                <span ng-if="!entity.storeName">无</span>
+            </div>
+            <div class="orderDetailsName">门店电话</div>
+            <div class="orderDetailsCtn">
+                <span ng-if="entity.storeMobile">{{entity.storeMobile}}</span>
+                <span ng-if="!entity.storeMobile">无</span>
+            </div>
+            <div class="orderDetailsName">门店地址</div>
+            <div class="orderDetailsCtn">
+                <span ng-if="entity.storeAddress">{{entity.storeAddress}}<span ng-if="entity.storeAddrDetail">{{entity.storeAddrDetail}}</span></span>
+                <span ng-if="!entity.storeAddress">无</span>
+            </div>
+        </div>
+    </div>
+    <div class="orderDetailBody">
+        <h1>收货信息</h1>
+        <div class="orderDetails">
+            <div class="orderDetailsName">收货人</div>
+            <div class="orderDetailsCtn">{{entity.toContact}}</div>
+            <div class="orderDetailsName">收货地址</div>
+            <div class="orderDetailsCtn">
+                <span ng-if="entity.toAddress">{{entity.toAddress}}</span>
+                <span ng-if="!entity.toAddress">无</span>
+
+            </div>
+            <div class="orderDetailsName">收货电话</div>
+            <div class="orderDetailsCtn">
+                <span ng-if="entity.toMobile">{{entity.toMobile}}</span>
+                <span ng-if="!entity.toMobile">无</span>
+            </div>
+        </div>
+    </div>
+    <div class="orderDetailBody">
+        <h1>订单动态</h1>
+        <div class="orderDetails">
+            <div class="orderDetailsName">接单时间</div>
+            <div class="orderDetailsCtn">
+                <span ng-if="entity.receiveTime">{{entity.receiveTime}}</span>
+                <span ng-if="!entity.receiveTime">无</span>
+            </div>
+            <div class="orderDetailsName">提货时间</div>
+            <div class="orderDetailsCtn">
+                <span ng-if="entity.takeTime">{{entity.takeTime}}</span>
+                <span ng-if="!entity.takeTime">无</span>
+            </div>
+            <div class="orderDetailsName">签收时间</div>
+            <div class="orderDetailsCtn">
+                <span ng-if="entity.finishTime">{{entity.finishTime}}</span>
+                <span ng-if="!entity.finishTime">无</span>
+            </div>
+            <div class="orderDetailsName">异常时间</div>
+            <div class="orderDetailsCtn">
+                <span ng-if="entity.cancelTime">{{entity.cancelTime}}</span>
+                <span ng-if="!entity.cancelTime">无</span>
+            </div>
+        </div>
+    </div>
+    <div class="orderDetailBody">
+        <h1>骑手信息</h1>
+        <div class="orderDetails">
+            <div class="orderDetailsName">骑手姓名</div>
+            <div class="orderDetailsCtn">
+                <span ng-if="entity.runnerName">{{entity.runnerName}}</span>
+                <span ng-if="!entity.runnerName">无</span>
+            </div>
+            <div class="orderDetailsName">骑手电话</div>
+            <div class="orderDetailsCtn">
+                <span ng-if="entity.runnerMobile">{{entity.runnerMobile}}</span>
+                <span ng-if="!entity.runnerMobile">无</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+

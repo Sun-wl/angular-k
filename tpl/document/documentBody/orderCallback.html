@@ -1,0 +1,83 @@
+<div class="orderCallback" id="orderCallback">
+    <h1 class="table-ctn-title">订单回调</h1>
+    <p class="table-ctn-p-blueBorder-bold">接口简介</p>
+    <p class="table-ctn-p">每次订单状态发生变化时，会对添加的APP中的callback的URL进行回调。</p>
+    <p class="table-ctn-p">1. 参数以http方式传递。若回调服务器响应失败（响应非200），会每隔1分钟重试一次，最多重试6次。</p>
+    <p class="table-ctn-p">2. 每次订单状态变化都会发生回调，如果出现订单状态回调顺序不一致，请根据回调参数中的时间戳进行判断。</p>
+    <p class="table-ctn-p">3. 在线上环境中，订单状态的变化会主动触发订单的回调；而在测试环境中，需要模拟订单的各个状态来触发回调。</p>
+    <p class="table-ctn-p">4. 测试环境，模拟订单各状态的接口如下：</p>
+    <div class="table-ctn-list">
+        <ul class="table-ctn-list-ul">
+            <li><a class="blue" href="#/page/document/simulateTaking">模拟骑手接单</a></li>
+            <li><a class="blue" href="#/page/document/simulatePickup">模拟完成取货</a></li>
+            <li><a class="blue" href="#/page/document/simulateFinish">模拟完成订单</a></li>
+            <li><a class="blue" href="#/page/document/simulateCancel">模拟取消订单</a></li>
+        </ul>
+    </div>
+    <p class="table-ctn-p-blueBorder-bold">参数说明</p>
+    <div class="table-ctn-table">
+        <div class="table-responsive">
+            <table class="table table-hover m-b-none">
+                <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>是否必传</th>
+                    <th>描述</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="tdBold">order_id</td>
+                    <td>String</td>
+                    <td>是</td>
+                    <td>第三方订单编号</td>
+                </tr>
+                <tr>
+                    <td class="tdBold">status</td>
+                    <td>Integer</td>
+                    <td>是</td>
+                    <td>订单状态 (1:待接单  2:已接单等待取货 3:已取货正在配送 5:已取消  7:已完成  8:订单异常)</td>
+                </tr>
+                <tr>
+                    <td class="tdBold">cancelReason</td>
+                    <td>String</td>
+                    <td>是</td>
+                    <td>取消原因</td>
+                </tr>
+                <tr>
+                    <td class="tdBold">cancelFrom</td>
+                    <td>String</td>
+                    <td>是</td>
+                    <td>订单取消原因来源(1:配送员取消；2:商家主动取消；3:系统或客服取消；0:默认值)</td>
+                </tr>
+                <tr>
+                    <td class="tdBold">updateTime</td>
+                    <td>Long</td>
+                    <td>是</td>
+                    <td>更新时间</td>
+                </tr>
+                <tr>
+                    <td class="tdBold">runnerId</td>
+                    <td>Long</td>
+                    <td>否</td>
+                    <td>配送员ID (接单后会传)</td>
+                </tr>
+                <tr>
+                    <td class="tdBold">runnerName</td>
+                    <td>String</td>
+                    <td>否</td>
+                    <td>配送员姓名 (接单后会传)</td>
+                </tr>
+                <tr>
+                    <td class="tdBold">runnerMobile</td>
+                    <td>String</td>
+                    <td>否</td>
+                    <td>配送员联系方式 (接单后会传)</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p class="table-ctn-p-blueBorder-bold">状态说明</p>
+    <p class="table-ctn-p">已取消：包括配送员取消、商户取消、系统取消（待接单、待取货、配送中的订单）</p>
+</div>

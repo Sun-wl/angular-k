@@ -1,0 +1,84 @@
+<style>
+    .manage-shop-body #container{
+        width:600px;
+        height:300px;
+    }
+    @media screen and (max-width: 768px){
+        .manage-shop-body #container{
+            width:300px;
+            height:300px;
+        }
+    }
+</style>
+
+<div class="shopAdd" id="shopAdd" ng-controller="shopAddCtrl">
+    <div class="manage-title">
+        <div class="manage-title-body">添加门店</div>
+    </div>
+    <div class="manage-ctn">
+        <div class="manage-shop">
+            <div class="manage-shop-body">
+                <div class="manage-shop-name">门店编码</div>
+                <div class="manage-shop-input">
+                    <input type="text" class="form-control" placeholder="门店编码" ng-model="entity.originShopId">
+                </div>
+            </div>
+            <div class="manage-shop-body">
+                <div class="manage-shop-name">门店名称</div>
+                <div class="manage-shop-input">
+                    <input type="text" class="form-control" placeholder="门店名称" ng-model="entity.name">
+                </div>
+            </div>
+            <div class="manage-shop-body">
+                <div class="manage-shop-name">联系人</div>
+                <div class="manage-shop-input">
+                    <input type="text" class="form-control" placeholder="联系人" ng-model="entity.contact">
+                </div>
+            </div>
+            <div class="manage-shop-body">
+                <div class="manage-shop-name">联系方式</div>
+                <div class="manage-shop-input">
+                    <input type="text" class="form-control" placeholder="联系方式" ng-model="entity.mobile">
+                </div>
+            </div>
+            <div class="manage-shop-body">
+                <div class="manage-shop-name">城市区域</div>
+                <div class="manage-shop-inputs">
+                    <select class="form-control city" ng-model="entity.city" ng-options="city.code as city.name for city in app.city" ng-change="cityChange()">
+                        <option value="">---请选择---</option>
+                    </select>
+                    <select class="form-control areaName" ng-model="entity.areaName" ng-options="areaName.name as areaName.name for areaName in areaNameList" ng-change="areaChange()">
+                        <option value="">---请选择---</option>
+                    </select>
+                </div>
+            </div>
+            <div class="manage-shop-body">
+                <div class="manage-shop-name"></div>
+                <div class="manage-shop-inputs">
+                    <input type="text" id="address" class="form-control address" placeholder="输入详细地址搜索" ng-model="entity.address" ng-change="addressChange()">
+                    <input type="text" id="addrDetail" class="form-control addrDetail" placeholder="门牌号（选填）" ng-model="entity.addrDetail">
+                </div>
+            </div>
+            <div class="manage-shop-body">
+                <div class="manage-shop-name"></div>
+                <div class="manage-shop-input">
+                    <!--<script type="text/ng-template" id="shopMapModal.html">-->
+                        <!--<div ng-include="'tpl/manage/manageBody/shopMapModal.html'"></div>-->
+                    <!--</script>-->
+                    <button class="toMap">请在地图上标记地址获取经纬度</button>
+                </div>
+            </div>
+            <div class="manage-shop-body">
+                <div id="container"></div>
+            </div>
+            <div class="manage-shop-body">
+                <div class="manage-shop-name">
+                    <button class="cancelBtn" ui-sref="page.manage.shop">取消</button>
+                </div>
+                <div class="manage-shop-input" style="text-align: center;">
+                    <button class="saveBtn" ng-click="save()">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
